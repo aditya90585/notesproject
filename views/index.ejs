@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #file {
+            width: 95vw;
+            height: 40px;
+            display: block;
+            margin: auto;
+
+        }
+
+        #text {
+            display: block;
+            width: 95vw;
+            height: 300px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-left: 25px;
+        }
+
+        .cont {
+            display: flex;
+            margin-left: 25px;
+            gap: 20px;
+
+        }
+
+        .box {
+            height: 80px;
+            width: 160px;
+            border: 1px solid black;
+        }
+        .box a{
+            display: block;
+        }
+
+        .submit {
+            margin-left: 30px;
+            height: 30px;
+            font-size: larger;
+            font-weight: 600;
+            margin-top: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Notes</h1>
+    <form action="/create" method="post">
+        <input type="text" name="filename" id="file" placeholder="enter file name">
+        <textarea name="textarea" id="text" placeholder="Write text here..."></textarea>
+
+        <input class="submit" type="submit" value="Create">
+    </form>
+        <h2>Saved notes</h2>
+        <div class="cont">
+
+            <% if(files.length>0){ %>
+                <% files.forEach((e)=>{ %>
+                    <div class="box">
+                        <div class="filename">
+                            <%=e %>
+                        </div>
+                        <a href="./read/<%=e %>">read more</a>
+                        <a href="./edit/<%=e %>">edit file name</a>
+                        <a href="./delete/<%=e %>">delete file</a>
+                    </div>
+
+                    <% }) %>
+
+                        <% } else{ %>
+                            <div class="notask">No saved notes here...</div>
+                            <% } %>
+
+
+
+
+
+
+        </div>
+
+
+    
+</body>
+
+</html>
